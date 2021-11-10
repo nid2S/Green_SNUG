@@ -1,3 +1,4 @@
+from transformers import TFAutoModelForCausalLM, TFGPT2LMHeadModel, TFBertLMHeadModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 

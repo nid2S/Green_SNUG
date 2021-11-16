@@ -14,5 +14,3 @@
 # HF
 - 모델 : [Ko-DialoGPT](https://huggingface.co/byeongal/Ko-DialoGPT) 와 [skt/kogpt2-base-v2](https://huggingface.co/skt/kogpt2-base-v2) 를 발견.
   먼저 ko-DialoGPT를 사용(DialoGPT를 알아보는 중)해 챗봇을 만들어보고, 이로 불충분하다면 koGPT를 이용해 lowLevel에서 제작. 이후 tf로의 제작을 위해 구조에 신경.
-
-- 허깅페이스 홈페이지의 예제 코드를 기반으로 영어 챗봇을 제작 > 예제를 기반으로 다른 모델을 사용해 한국어 챗봇을 제작 > 공식 문서를 참고하며 row-level로 챗봇 제작.

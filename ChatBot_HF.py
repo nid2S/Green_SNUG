@@ -1,6 +1,7 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedTokenizerFast, GPT2LMHeadModel
 from transformers import TFAutoModelForCausalLM, TFGPT2LMHeadModel, GPT2TokenizerFast
-import torch, tensorflow
+import tensorflow as tf
+import torch
 
 def HF_example(line: int = 5):
     tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-large")
@@ -58,3 +59,12 @@ def HF_korean_example():
         print(f"Bot: {bot_response}")
         past_user_inputs.append(user_input)
         generated_responses.append(bot_response)
+
+
+def HF_with_koGPT():
+    MODEL_NAME = "skt/kogpt2-base-v2"
+    # model = TFAutoModelForCausalLM.from_pretrained(MODEL_NAME, from_pt=True)
+    model = TFGPT2LMHeadModel.from_pretrained(MODEL_NAME, from_pt=True)
+    tokenizer = GPT2TokenizerFast.from_pretrained(MODEL_NAME)
+
+

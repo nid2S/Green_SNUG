@@ -9,7 +9,7 @@
 - GPT의 구조는 (?)
 - 이루다의 구조 : DialogBERT(NLU모듈, 스캐터랩에서 수집한 카카오톡 대화데이터로 학습된 BERT)를 이용해 텍스트(메세지)를 하나의 벡터로 치환 -> 
   Session/ContentDB(답변 후보들을 저장해놓은 DB, 카카오톡 대화 데이터중 질 높은 대화와 답변을 선정해 저장)에서 여태까지의 대화를 보고 답변 후보 N개 생성
-  (문장 벡터를 차원축소해 DB에 저장한 뒤 코사인 거리를 계산) -> 선정된 후보 N개중 하나를 고르기 위해 Re-ranker모델(각 개별 대화데이터를 학습, SSA점수 기반 추가로 레이블링)사용
+  (문장 벡터를 차원축소해 DB에 저장한 뒤 코사인 거리를 계산) -> 선정된 후보 N개중 하나를 고르기 위해 Re-ranker모델(각 개별 대화데이터를 학습, SSA점수 기반 추가로 레이블링)사용.
 - 이루다 구조 장단점 : 모든 답변이 기존 데이터에서 나와 답변이 무척 자연스러우나 수많은 데이터가 필요하고, 실제 글을 그대로 사용해 개인정보 유출의 위험이 있음.
 
 # Data
@@ -18,5 +18,5 @@
 - AI Hub[트위터에서 수집 및 정제한 대화 시나리오](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-008) | 상업 이용 불가 -> 미사용
 
 # HF
-- 모델 : [Ko-DialoGPT](https://huggingface.co/byeongal/Ko-DialoGPT) 와 [skt/kogpt2-base-v2](https://huggingface.co/skt/kogpt2-base-v2) 를 발견.
+- 모델 : [byeongal/Ko-DialoGPT](https://huggingface.co/byeongal/Ko-DialoGPT) 와 [skt/kogpt2-base-v2](https://huggingface.co/skt/kogpt2-base-v2) 를 발견.
   먼저 ko-DialoGPT를 사용(DialoGPT를 알아보는 중)해 챗봇을 만들어보고, 이로 불충분하다면 koGPT를 이용해 lowLevel에서 제작. 이후 tf로의 제작을 위해 구조에 신경.

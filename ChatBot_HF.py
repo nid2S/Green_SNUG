@@ -1,5 +1,6 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedTokenizerFast, GPT2LMHeadModel
 from transformers import TFAutoModelForCausalLM, TFGPT2LMHeadModel, GPT2TokenizerFast
+from preprocessing import DatasetGetter
 import tensorflow as tf
 import torch
 
@@ -60,11 +61,40 @@ def HF_korean_example():
         past_user_inputs.append(user_input)
         generated_responses.append(bot_response)
 
-
 def HF_with_koGPT():
     MODEL_NAME = "skt/kogpt2-base-v2"
     # model = TFAutoModelForCausalLM.from_pretrained(MODEL_NAME, from_pt=True)
     model = TFGPT2LMHeadModel.from_pretrained(MODEL_NAME, from_pt=True)
-    tokenizer = GPT2TokenizerFast.from_pretrained(MODEL_NAME)
+    tokenizer = GPT2TokenizerFast.from_pretrained(MODEL_NAME, bos_token='</s>',
+                                                  eos_token='</s>', unk_token='<unk>',
+                                                  pad_token='<pad>', mask_token='<mask>')
+    # tokenizer.add_tokens(['<기쁨>', '<당황>'], special_tokens=True)
+    model.resize_token_embeddings(len(tokenizer))
+
+    consider_context_num = 10
+
+    recently_sents = []
+    while True:
+        if len(recently_sents) > consider_context_num - 1:
+            recently_sents = recently_sents[2:]
+
+        new_user_input = input(">> user : ") + tokenizer.eos_token
+        recently_sents.append(new_user_input)
+
+        text_ids = []
+        # check vector concatenate
+        for sent in tokenizer.batch_encode_plus(recently_sents):
+            text_ids += sent
+
+        model_output = model.generate(tf.convert_to_tensor(text_ids),
+                                      max_length=128,
+                                      repetition_penalty=2.0,
+                                      pad_token_id=tokenizer.pad_token_id,
+                                      eos_token_id=tokenizer.eos_token_id,
+                                      bos_token_id=tokenizer.bos_token_id)
+        model_output = tokenizer.decode(model_output[0])
+        recently_sents.append(model_output)
+        print(">> Bot : " + model_output)
+
 
 

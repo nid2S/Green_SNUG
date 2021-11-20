@@ -25,12 +25,12 @@ class DatasetGetter:
 
         # korean speech summary
         topics = ["개인및관계", "미용과건강", "상거래(쇼핑)", "시사교육", "식음료", "여가생활", "일과직업", "주거와생활", "행사"]
-        # 74024 +
+        # 74024 + 16465 + 25542 + 12711 + 29399 + 34767 + 20217 + 46221 + 20646
         koreanSpeech_t = ""  # topic | type | turns | participants | dialogue
         koreanSpeech_v = ""
         for topic in topics:
-            data_t = json.load(open("./data/KoreanSpeakSummary/Training/"+topic+".json", "r+", encoding="utf-8"))
-            data_v = json.load(open("./data/KoreanSpeakSummary/Vaildation/"+topic+".json", "r+", encoding="utf-8"))
+            data_t = json.load(open("./data/KoreanSpeakSummary/Training/"+topic+".json", "r+", encoding="utf-8"))["data"]
+            data_v = json.load(open("./data/KoreanSpeakSummary/Vaildation/"+topic+".json", "r+", encoding="utf-8"))["data"]
             for conv in data_t:
                 conv_topic = conv["header"]["topic"]
                 conv_type = conv["header"]["type"]

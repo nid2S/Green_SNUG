@@ -13,11 +13,13 @@
 - 이루다 구조 장단점 : 모든 답변이 기존 데이터에서 나와 답변이 무척 자연스러우나 수많은 데이터가 필요하고, 실제 글을 그대로 사용해 개인정보 유출의 위험이 있음.
 
 # Data
-- AI Hub[감성대화 말뭉치](https://aihub.or.kr/aidata/7978) 
-- AI Hub[한국어 대화 요약](https://aihub.or.kr/aidata/30714) | 사람간의 대화 태스크라 적합한지(사용할지)여부를 생각해 봐야 할 듯.
-- AI Hub[트위터에서 수집 및 정제한 대화 시나리오](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-008) | 상업 이용 불가 -> 미사용
-- AI Hub[한국어 대화 데이터셋](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-011) | 미사용?
-- AI Hub[한국어 감정 정보가 포함된 연속적 대화 데이터셋](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-010) | 미사용?
+- [감성대화 말뭉치](https://aihub.or.kr/aidata/7978) 
+- [한국어 대화 요약](https://aihub.or.kr/aidata/30714)
+- [한국어 대화](https://aihub.or.kr/aidata/85/download)
+- [트위터에서 수집 및 정제한 대화 시나리오](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-008) | 연구용도로만 사용가능
+- [한국어 감정 정보가 포함된 연속적 대화 데이터셋](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-010) | 연구용도로만 사용가능
+- [한국어 대화 데이터셋](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-011) | 연구용도로만 사용가능
+- [웰니스 대화 스크립트 데이터셋](https://aihub.or.kr/keti_data_board/language_intelligence) | 연구용도로만 사용가능
 
 
 # HF

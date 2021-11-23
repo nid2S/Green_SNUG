@@ -16,6 +16,9 @@
 - AI Hub[감성대화 말뭉치](https://aihub.or.kr/aidata/7978) 
 - AI Hub[한국어 대화 요약](https://aihub.or.kr/aidata/30714) | 사람간의 대화 태스크라 적합한지(사용할지)여부를 생각해 봐야 할 듯.
 - AI Hub[트위터에서 수집 및 정제한 대화 시나리오](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-008) | 상업 이용 불가 -> 미사용
+- AI Hub[한국어 대화 데이터셋](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-011) | 미사용?
+- AI Hub[한국어 감정 정보가 포함된 연속적 대화 데이터셋](https://aihub.or.kr/opendata/keti-data/recognition-laguage/KETI-02-010) | 미사용?
+
 
 # HF
 - 모델 : [byeongal/Ko-DialoGPT](https://huggingface.co/byeongal/Ko-DialoGPT) 와 [skt/kogpt2-base-v2](https://huggingface.co/skt/kogpt2-base-v2) 를 발견.

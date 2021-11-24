@@ -6,7 +6,7 @@
 - [챗봇 데이터](https://github.com/songys/Chatbot_data)
 - [감성대화 말뭉치](https://aihub.or.kr/aidata/7978) 
 - [한국어 대화](https://aihub.or.kr/aidata/85/download)
-- [한국어 대화 요약](https://aihub.or.kr/aidata/30714)
+- [한국어 대화 요약](https://aihub.or.kr/aidata/30714) -> 사용 안함
 
 # 모델
 - [byeongal/Ko-DialoGPT](https://huggingface.co/byeongal/Ko-DialoGPT) 파인튜닝해 사용.

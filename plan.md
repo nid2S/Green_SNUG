@@ -27,4 +27,4 @@
 
 # HF
 - 모델 : [byeongal/Ko-DialoGPT](https://huggingface.co/byeongal/Ko-DialoGPT) 와 [skt/kogpt2-base-v2](https://huggingface.co/skt/kogpt2-base-v2) 를 발견.
-  이로 불충분하다면 koGPT를 이용해 lowLevel에서 제작. -> ko-DialoGPT : 대화 모델의 성능이 많이 부족함. 여기도 일단 파인튜닝. | GPT : 문장 생성 모델. 일단 파인튜닝.
+  이로 불충분하다면 koGPT를 이용해 lowLevel에서 제작. -> ko-DialoGPT : max_length, num_beams등의 매개변수를 써야 효과가 좋음. 대화모델의 파인튜닝 방법을 찾아봄.

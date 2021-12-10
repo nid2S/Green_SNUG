@@ -19,9 +19,7 @@
 - 2. tensorflow.python.framework.errors_impl.InvalidArgumentError:  Incompatible shapes: [2,16,12,170] vs. [16,170] 
 - loss -> SparseCategoricalCrossentropy() | 양립할 수 없는 형태. 익숙한 숫자가 몇 보임. 정확히 어느 단계에서 나는 오류인지 파악되지 않음. 순전파 과정 아닐까 추측.
 - 3. ValueError: Shapes (None, 170) and (None, 170, 51200) are incompatible
-- loss -> CategoricalCrossentropy(from_logits=True) | (None, 170, 51200)이 어디에서 나오는 건지 파악 필요(loss함수에서 나는 오류). 아마 모델의 반환값?
-- 4. ValueError: Shapes (None, 170) and (None, 170, 51200) are incompatible
-- loss -> CategoricalCrossentropy() | from_logit의 여부와 관계없이 같은 오류 -> 1. logit이 모델 output때 쓰이지 않는다, 2. 둘다 괜찮다. 
+- loss -> CategoricalCrossentropy(from_logits=True)/CategoricalCrossentropy() | 51200은 vocab_size. 원 핫 인코딩이 되지 않아 생긴 차원오류 -> Sparse를 써야 함.
 - 오류들 -> 오류가 날 수 있는 구석은 loss function, 데이터 구조, API(모델, 함수) 셋 중 하나 일듯.
 - 일단 다른 코드를 참고해(로직이 아니라 구조만)Subclassing API로 시험해 보고, 그래도 안되면 로직포함 텐서플로우로 변환, 또 안되면 torch로 바꿔 시도해봄.
 
@@ -29,4 +27,4 @@
 - 다른 챗봇의 파인튜닝(kogpt 기반) : <q>Q<sent>S + <a>A</s> 형태의 데이터. | max_len을 정한 뒤 q와 a를 토큰화, `q_len + a_len > max_len`인지 판단 후, 넘는다면 
   `max_len - q_len <= 0`인지 판단, 그렇다면 q를 [-(max_len/2) : \]로 나누며. 이 후 a를 [:max_len - q_len\]로 나눔. 
   이후 ( token_ids(<q>Q+<a>A</s>), mask(A 부분만 1, 나머진 0), labels(Q길이만큼 masking +<bos>A</s>)를 반환함.
-- 의문점 : tensorflow로 바꿔서 나는 오류다? -> 정 해결이 안되면, 저 구조를 텐서플로우로 그대로 바꿔서 해봄.
+- 의문점 : loss function이 Crossentropy? | tensorflow로 바꿔서 나는 오류다? -> 정 해결이 안되면, 저 구조를 텐서플로우로 그대로 바꿔서 해봄.

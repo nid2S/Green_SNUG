@@ -28,3 +28,6 @@
   이후 ( token_ids(<q>Q+<a>A</s>), mask(A 부분만 1, 나머진 0), labels(Q길이만큼 masking +<bos>A</s>)를 반환함.
 - 의문점 : loss function이 Crossentropy? | tensorflow로 바꿔서 나는 오류다? -> 정 해결이 안되면, 저 구조를 텐서플로우로 그대로 바꿔서 해봄.
 - 일단 다른 코드를 참고해 Subclassing API로 시험해 보고, 안되면 torch로 바꿔서, 그래도 안되면 코드 그대로 시도해봄.
+
+- -> subclassing API로 모델의 call 부분을 output = self.koDialoGPT(inputs, return_dict=True) | return output.logits 로 바꾸니 해결되었음.
+  아마 from_logits 가 내가 생각했던 동작을 하지 않아 생긴 오류인듯.

@@ -6,10 +6,6 @@
 - 챗봇이 스스로 질문이 가능해야 함 -> 스스로 대화를 시작하거나, 최소 대화에 대해 질문형 응답이 가능해야 함(나 뭐 마시는중 -> 뭐마시는데요? 같이).
 
 - LM의 훈련방법은 다음 단어를 예측시키는 것.
-- 이루다의 구조 : DialogBERT(NLU모듈, 스캐터랩에서 수집한 카카오톡 대화데이터로 학습된 BERT)를 이용해 텍스트(메세지)를 하나의 벡터로 치환 -> 
-  Session/ContentDB(답변 후보들을 저장해놓은 DB, 카카오톡 대화 데이터중 질 높은 대화와 답변을 선정해 저장)에서 여태까지의 대화를 보고 답변 후보 N개 생성
-  (문장 벡터를 차원축소해 DB에 저장한 뒤 코사인 거리를 계산) -> 선정된 후보 N개중 하나를 고르기 위해 Re-ranker모델(각 개별 대화데이터를 학습, SSA점수 기반 추가로 레이블링)사용.
-- 이루다 구조 장단점 : 모든 답변이 기존 데이터에서 나와 답변이 무척 자연스러우나 수많은 데이터가 필요하고, 실제 글을 그대로 사용해 개인정보 유출의 위험이 있음.
 
 # Data
 - [감성대화 말뭉치](https://aihub.or.kr/aidata/7978) 
@@ -25,5 +21,4 @@
 
 
 # HF
-- 모델 : [byeongal/Ko-DialoGPT](https://huggingface.co/byeongal/Ko-DialoGPT) 와 [skt/kogpt2-base-v2](https://huggingface.co/skt/kogpt2-base-v2) 를 발견.
-  이로 불충분하다면 koGPT를 이용해 lowLevel에서 제작. -> ko-DialoGPT : max_length, num_beams등의 매개변수를 써야 효과가 좋음. 대화모델의 파인튜닝 방법을 찾아봄.
+- [여기](https://github.com/haven-jeon/KoGPT2-chatbot) 서 훈련 코드를 clone해 사용

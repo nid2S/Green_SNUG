@@ -1,1 +1,8 @@
-/data
+# python
+__pycache__
+# data folder
+data
+# venv
+venv
+# plan file
+plan.md
